@@ -17,7 +17,11 @@
 
   <body>
   <h1></h1>
+  <% if user_signed_in? %>
+  <%= link_to 'cerrar sesión', destroy_user_session_path, method: :delete %>
+  <% else %>
   <%= link_to 'Registro', new_user_session_path%>
+  <% end %>
   <%= link_to 'Prestamos', loans_path%>
   <%= link_to 'Pagina Principal', root_path%>
 
