@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sourse_of_incomes
   resources :loans
   devise_for :users
   get 'home/index'

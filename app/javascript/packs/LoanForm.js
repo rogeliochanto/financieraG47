@@ -34,12 +34,13 @@ const LoanForm = {
     $('#loanTypeInput').change(()=>{
       var selectedOption = $('#loanTypeInput').val()
       console.log(selectedOption) 
-      $('#amount').val('500.000')
+      $('#amount').val('500000')
       $('#term').empty()
       switch(selectedOption){
         case 'personal':
           createOptions(personalTerms) 
           $('#rate').val('5%')
+          $("#cuota").val(17)
           break;
         case 'car':
           createOptions(carTerms) 
@@ -50,6 +51,10 @@ const LoanForm = {
           $('#rate').val('3%')
           break;
       }
+    })
+    $("#amount").change(()=>{
+      var monto = Number($("#amount").val())
+      $("#cuota").val(Math.pow(monto, 0.5))
     })
   }
 }

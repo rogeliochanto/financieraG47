@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Salary income:</strong>
+  <%= @sourse_of_income.salary_income %>
+</p>
+
+<p>
+  <strong>Independent:</strong>
+  <%= @sourse_of_income.independent %>
+</p>
+
+<p>
+  <strong>Mixed income:</strong>
+  <%= @sourse_of_income.mixed_income %>
+</p>
+
+<p>
+  <strong>Expenses:</strong>
+  <%= @sourse_of_income.expenses %>
+</p>
+
+<p>
+  <strong>Difference:</strong>
+  <%= @sourse_of_income.difference %>
+</p>
+
+<p>
+  <strong>Approval:</strong>
+  <%= @sourse_of_income.approval %>
+</p>
+
+<%= link_to 'Edit', edit_sourse_of_income_path(@sourse_of_income) %> |
+<%= link_to 'Back', sourse_of_incomes_path %>

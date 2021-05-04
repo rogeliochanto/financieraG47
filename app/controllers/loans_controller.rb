@@ -3,7 +3,7 @@ class LoansController < ApplicationController
 
   # GET /loans or /loans.json
   def index
-    @loans = Loan.all
+    @loans = current_user.loans
   end
 
   # GET /loans/1 or /loans/1.json
@@ -64,6 +64,6 @@ class LoansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def loan_params
-      params.require(:loan).permit(:amount, :interest, :term, :fee)
+      params.require(:loan).permit(:amount, :interest, :term, :fee, :user_id)
     end
 end

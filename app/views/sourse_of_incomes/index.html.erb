@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sourse Of Incomes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Salary income</th>
+      <th>Independent</th>
+      <th>Mixed income</th>
+      <th>Expenses</th>
+      <th>Difference</th>
+      <th>Approval</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sourse_of_incomes.each do |sourse_of_income| %>
+      <tr>
+        <td><%= sourse_of_income.salary_income %></td>
+        <td><%= sourse_of_income.independent %></td>
+        <td><%= sourse_of_income.mixed_income %></td>
+        <td><%= sourse_of_income.expenses %></td>
+        <td><%= sourse_of_income.difference %></td>
+        <td><%= sourse_of_income.approval %></td>
+        <td><%= link_to 'Show', sourse_of_income %></td>
+        <td><%= link_to 'Edit', edit_sourse_of_income_path(sourse_of_income) %></td>
+        <td><%= link_to 'Destroy', sourse_of_income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sourse Of Income', new_sourse_of_income_path %>

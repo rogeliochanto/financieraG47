@@ -1,0 +1,2 @@
+class SourseOfIncome < ApplicationRecord
+end
