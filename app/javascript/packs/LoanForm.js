@@ -24,6 +24,12 @@ const LoanForm = {
       "7 años":84,
       "8 años":96,
     }
+    function calculo(monto, plazo, interes){
+      console.log('el monto es: ', monto)
+      console.log('el plazo es: ', plazo)
+      console.log('el interes es:', interes)
+      return monto + plazo + cuota
+    }
 
     function createOptions(terms){
       $.each(terms,function(key,value){
@@ -58,8 +64,11 @@ const LoanForm = {
       //$("#cuota").val(Math.pow(monto, 0.5))
       var denominador = (1-(Math.pow(1 + rate,-60)))
       console.log('DENOMINADOR', denominador)
-      $("#cuota").val(rate * monto / denominador)
+      var cuota = calculo(monto,60,rate) 
+      //$("#cuota").val(rate * monto / denominador)
+      $("#cuota").val(cuota)
     })
+
     //$("#amount").change(()=>{
       
       //$("#cuota").val(Math.pow(monto, 0.5))
