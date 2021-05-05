@@ -39,23 +39,31 @@ const LoanForm = {
       switch(selectedOption){
         case 'personal':
           createOptions(personalTerms) 
-          $('#rate').val('5%')
+          $('#rate').val('0.05')
           $("#cuota").val(17)
           break;
         case 'car':
           createOptions(carTerms) 
-          $('#rate').val('4%')
+          $('#rate').val('0.04')
           break;
         case 'house':
           createOptions(houseTerms)
-          $('#rate').val('3%')
+          $('#rate').val('0.03')
           break;
       }
     })
-    $("#amount").change(()=>{
+    $("#amount").focusout(()=>{
+      var rate = Number($("#rate").val())
       var monto = Number($("#amount").val())
-      $("#cuota").val(Math.pow(monto, 0.5))
+      //$("#cuota").val(Math.pow(monto, 0.5))
+      var denominador = (1-(Math.pow(1 + rate,-60)))
+      console.log('DENOMINADOR', denominador)
+      $("#cuota").val(rate * monto / denominador)
     })
+    //$("#amount").change(()=>{
+      
+      //$("#cuota").val(Math.pow(monto, 0.5))
+    //})
   }
 }
 $( document ).ready(function() {
