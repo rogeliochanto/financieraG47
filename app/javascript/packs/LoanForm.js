@@ -39,7 +39,7 @@ const LoanForm = {
     function updatePayment(){
       var monto = Number($('#amount').val()) 
       var plazo = Number($('#period').val())
-      var interes = Number($('#rate').val())
+      var interes = Number($('#rate').val().replace('%', ''))/100
       var cuota = calculo(monto, plazo, interes)
       $("#cuota").val(Math.round(cuota))
     }
@@ -50,15 +50,15 @@ const LoanForm = {
       switch(selectedOption){
         case 'personal':
           createOptions(personalTerms) 
-          $('#rate').val('0.05')
+          $('#rate').val('5%')
           break;
         case 'car':
           createOptions(carTerms) 
-          $('#rate').val('0.04')
+          $('#rate').val('4%')
           break;
         case 'house':
           createOptions(houseTerms)
-          $('#rate').val('0.03')
+          $('#rate').val('3%')
           break;
       }
       updatePayment()
