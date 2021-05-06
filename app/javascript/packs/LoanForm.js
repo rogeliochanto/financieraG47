@@ -35,6 +35,14 @@ const LoanForm = {
         $('#period').append($('<option></option>').attr('value',value).text(key))
       })
     }
+    
+    function updatePayment(){
+      var monto = Number($('#amount').val()) 
+      var plazo = Number($('#period').val())
+      var interes = Number($('#rate').val())
+      var cuota = calculo(monto, plazo, interes)
+      $("#cuota").val(Math.round(cuota))
+    }
 
     $('#loanTypeInput').change(()=>{
       var selectedOption = $('#loanTypeInput').val()
@@ -53,40 +61,23 @@ const LoanForm = {
           $('#rate').val('0.03')
           break;
       }
-      var monto = Number($('#amount').val()) 
-      var plazo = Number($('#period').val())
-      var interes = Number($('#rate').val())
-      var cuota = calculo(monto, plazo, interes)
-      $("#cuota").val(cuota)
+      updatePayment()
     })
 
     $("#amount").focusout(()=>{
-      var monto = Number($('#amount').val()) 
-      var plazo = Number($('#period').val())
-      var interes = Number($('#rate').val())
-      var cuota = calculo(monto, plazo, interes)
-      $("#cuota").val(cuota)
+      updatePayment()
     })
 
     $("#rate").focusout(()=>{
-      var monto = Number($('#amount').val()) 
-      var plazo = Number($('#period').val())
-      var interes = Number($('#rate').val())
-      var cuota = calculo(monto, plazo, interes)
-      $("#cuota").val(cuota)
+      updatePayment()
     })
 
     $("#period").change(()=>{
-      var monto = Number($('#amount').val()) 
-      var plazo = Number($('#period').val())
-      var interes = Number($('#rate').val())
-      var cuota = calculo(monto, plazo, interes)
-      $("#cuota").val(cuota)
+      updatePayment()
+      //updateFormat()
     })
-
   }
 }
 $( document ).ready(function() {
   LoanForm.start()
 });
-
