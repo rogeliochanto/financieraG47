@@ -1,3 +1,10 @@
+<select class="custom-select" id='loanTypeInput'>
+  <option selected>Elija una opción</option>
+  <option value="personal">Personal</option>
+  <option value="car">Vehículo</option>
+  <option value="house">Vivienda</option>
+</select>
+
 <%= form_with(model: loan) do |form| %>
   <% if loan.errors.any? %>
     <div id="error_explanation">

@@ -1,6 +1,6 @@
 const prestamo = {
   start(){
-    console.log('LISTO EL LISTADO DE PRESTAMOS')
+    console.log('hola LISTO EL LISTADO DE PRESTAMOS')
     var personalTerms = {
       "12 meses":12,
       "24 meses":24,
@@ -26,54 +26,54 @@ const prestamo = {
       "8 años":96,
     }
     function calculo(monto, plazo, interes){
+      console.log('calculando')
       var denominador = (1-(Math.pow(1 + interes,-plazo)))
       return monto * interes / denominador
     }
     
     function createOptions(terms){
-      $('#period').empty()
+      $('#loan_term').empty()
       $.each(terms,function(key,value){
-        $('#period').append($('<option></option>').attr('value',value).text(key))
+        $('#loan_term').append($('<option></option>').attr('value',value).text(key))
       })
     }
     
     function updatePayment(){
-      var monto = Number($('#amount').val()) 
-      var plazo = Number($('#period').val())
-      var interes = Number($('#rate').val().replace('%', ''))/100
-      var cuota = calculo(monto, plazo, interes)
-      $("#cuota").val(Math.round(cuota))
+      var monto = Number($('#loan_amount').val()) 
+      var plazo = Number($('#loan_term').val())
+      var interes = Number($('#loan_interest').val().replace('%', ''))/100
+      var loan_fee = calculo(monto, plazo, interes)
+      $("#loan_fee").val(Math.round(loan_fee))
     }
 
     $('#loanTypeInput').change(()=>{
       var selectedOption = $('#loanTypeInput').val()
-      $('#amount').val('500000')
+      $('#loan_amount').val('500000')
       switch(selectedOption){
         case 'personal':
           createOptions(personalTerms) 
-          $('#rate').val('5%')
+          $('#loan_interest').val('5%')
           break;
         case 'car':
           createOptions(carTerms) 
-          $('#rate').val('4%')
+          $('#loan_interest').val('4%')
           break;
         case 'house':
           createOptions(houseTerms)
-          $('#rate').val('3%')
+          $('#loan_interest').val('3%')
           break;
       }
       updatePayment()
     })
-
-    $("#amount").focusout(()=>{
+    $("#loan_amount").focusout(()=>{
       updatePayment()
     })
 
-    $("#rate").focusout(()=>{
+    $("#loan_interest").focusout(()=>{
       updatePayment()
     })
 
-    $("#period").change(()=>{
+    $("#loan_term").change(()=>{
       updatePayment()
       //updateFormat()
     })
