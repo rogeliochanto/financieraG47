@@ -22,7 +22,7 @@ class LoansController < ApplicationController
   # POST /loans or /loans.json
   def create
     @loan = Loan.new(loan_params)
-
+    @loan.user = current_user
     respond_to do |format|
       if @loan.save
         format.html { redirect_to @loan, notice: "Loan was successfully created." }
@@ -64,6 +64,6 @@ class LoansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def loan_params
-      params.require(:loan).permit(:amount, :interest, :term, :fee, :user_id)
+      params.require(:loan).permit(:amount, :interest, :term, :fee, :kind)
     end
 end

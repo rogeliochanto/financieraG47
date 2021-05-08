@@ -45,20 +45,21 @@ const prestamo = {
       var loan_fee = calculo(monto, plazo, interes)
       $("#loan_fee").val(Math.round(loan_fee))
     }
-
-    $('#loanTypeInput').change(()=>{
-      var selectedOption = $('#loanTypeInput').val()
+    
+    $('#loan_kind').change(()=>{
+      var selectedOption = $('#loan_kind').val()
+      console.log(selectedOption)
       $('#loan_amount').val('500000')
       switch(selectedOption){
         case 'personal':
           createOptions(personalTerms) 
           $('#loan_interest').val('5%')
           break;
-        case 'car':
+        case 'vehicle':
           createOptions(carTerms) 
           $('#loan_interest').val('4%')
           break;
-        case 'house':
+        case 'real_state':
           createOptions(houseTerms)
           $('#loan_interest').val('3%')
           break;

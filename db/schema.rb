@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_210224) do
+ActiveRecord::Schema.define(version: 2021_05_08_034557) do
 
   create_table "loans", force: :cascade do |t|
     t.integer "amount"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_210224) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
     t.integer "term"
+    t.integer "kind"
     t.index ["user_id"], name: "index_loans_on_user_id"
   end
 

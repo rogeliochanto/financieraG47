@@ -1,10 +1,3 @@
-<select class="custom-select" id='loanTypeInput'>
-  <option selected>Elija una opción</option>
-  <option value="personal">Personal</option>
-  <option value="car">Vehículo</option>
-  <option value="house">Vivienda</option>
-</select>
-
 <%= form_with(model: loan) do |form| %>
   <% if loan.errors.any? %>
     <div id="error_explanation">
@@ -17,7 +10,11 @@
       </ul>
     </div>
   <% end %>
-<%= form.hidden_field :user_id, value: current_user.id %>
+  <div class="field">
+    <%= form.label :kind %>
+    <%= form.select :kind, [["Personal",:personal], ["Vivienda",:real_state], ["Vehículo", :vehicle]] %>
+  </div>
+
   <div class="field">
     <%= form.label :amount %>
     <%= form.number_field :amount %>
@@ -25,11 +22,12 @@
 
   <div class="field">
     <%= form.label :interest %>
-    <%= form.number_field :interest %>
+    <%= form.text_field :interest %>
   </div>
 
   <div class="field">
-  <%=select_tag 'loan_term'%>
+  <%= form.label :term %>
+  <%=form.select :term,['12','24','36'] %>
   </div>
 
   <div class="field">
