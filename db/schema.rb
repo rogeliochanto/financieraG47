@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_034557) do
+ActiveRecord::Schema.define(version: 2021_05_08_230729) do
 
   create_table "loans", force: :cascade do |t|
     t.integer "amount"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_034557) do
     t.boolean "approval"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_sourse_of_incomes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,4 +54,5 @@ ActiveRecord::Schema.define(version: 2021_05_08_034557) do
   end
 
   add_foreign_key "loans", "users"
+  add_foreign_key "sourse_of_incomes", "users"
 end
