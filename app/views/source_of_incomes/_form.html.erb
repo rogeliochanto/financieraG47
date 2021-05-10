@@ -1,10 +1,10 @@
-<%= form_with(model: sourse_of_income) do |form| %>
-  <% if sourse_of_income.errors.any? %>
+<%= form_with(model: source_of_income) do |form| %>
+  <% if source_of_income.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(sourse_of_income.errors.count, "error") %> prohibited this sourse_of_income from being saved:</h2>
+      <h2><%= pluralize(source_of_income.errors.count, "error") %> prohibited this source_of_income from being saved:</h2>
 
       <ul>
-        <% sourse_of_income.errors.each do |error| %>
+        <% source_of_income.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -45,3 +45,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+<%= javascript_pack_tag 'source_of_income', 'data-turbolinks-track': 'reload' %>

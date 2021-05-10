@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_230729) do
+ActiveRecord::Schema.define(version: 2021_05_10_025344) do
 
   create_table "loans", force: :cascade do |t|
     t.integer "amount"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_05_08_230729) do
     t.index ["user_id"], name: "index_loans_on_user_id"
   end
 
-  create_table "sourse_of_incomes", force: :cascade do |t|
+  create_table "source_of_incomes", force: :cascade do |t|
     t.integer "salary_income"
     t.integer "independent"
     t.integer "mixed_income"
@@ -34,7 +34,9 @@ ActiveRecord::Schema.define(version: 2021_05_08_230729) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_sourse_of_incomes_on_user_id"
+    t.integer "loan_id", null: false
+    t.index ["loan_id"], name: "index_source_of_incomes_on_loan_id"
+    t.index ["user_id"], name: "index_source_of_incomes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,5 +56,6 @@ ActiveRecord::Schema.define(version: 2021_05_08_230729) do
   end
 
   add_foreign_key "loans", "users"
-  add_foreign_key "sourse_of_incomes", "users"
+  add_foreign_key "source_of_incomes", "loans"
+  add_foreign_key "source_of_incomes", "users"
 end

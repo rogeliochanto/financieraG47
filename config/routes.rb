@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :sourse_of_incomes
-  resources :loans
+  resources :loans do
+    resources :source_of_incomes
+  end
+  resources :source_of_incomes, only: :index
   devise_for :users
   get 'home/index'
   root 'home#index'
