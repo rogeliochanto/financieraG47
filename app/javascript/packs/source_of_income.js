@@ -4,7 +4,8 @@ const prestamo = {
     function estaAprobado(){
      var fee = Number($('#fee').html()) 
      var difference = Number($('#source_of_income_difference').val())
-     return (diference >= fee)
+     if (diference >= fee){$('#source_of_income_approval').checked = true}
+     else {$('#source_of_income_approval').checked = false}
     }
     function ingresos(){
       var salary = Number($('#source_of_income_salary_income').val())
@@ -21,15 +22,18 @@ const prestamo = {
     }
     $("#source_of_income_independent").focusout(()=>{
       updateMixed()
+      estaAprobado()
     })
 
     $("#source_of_income_salary_income").focusout(()=>{
       updateMixed()
+      estaAprobado()
     })
 
     $("#source_of_income_expenses").focusout(()=>{
       updateMixed()
       updateDifference()
+      estaAprobado()
     })
   }
 }

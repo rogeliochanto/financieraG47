@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sourse Of Incomes</h1>
+<h1>source Of Incomes</h1>
 
 <table>
   <thead>
@@ -16,17 +16,17 @@
   </thead>
 
   <tbody>
-    <% @sourse_of_incomes.each do |sourse_of_income| %>
+    <% @source_of_incomes.each do |source_of_income| %>
       <tr>
-        <td><%= sourse_of_income.salary_income %></td>
-        <td><%= sourse_of_income.independent %></td>
-        <td><%= sourse_of_income.mixed_income %></td>
-        <td><%= sourse_of_income.expenses %></td>
-        <td><%= sourse_of_income.difference %></td>
-        <td><%= sourse_of_income.approval %></td>
-        <td><%= link_to 'Show', sourse_of_income %></td>
-        <td><%= link_to 'Edit', edit_sourse_of_income_path(sourse_of_income) %></td>
-        <td><%= link_to 'Destroy', sourse_of_income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= source_of_income.salary_income %></td>
+        <td><%= source_of_income.independent %></td>
+        <td><%= source_of_income.mixed_income %></td>
+        <td><%= source_of_income.expenses %></td>
+        <td><%= source_of_income.difference %></td>
+        <td><%= source_of_income.approval %></td>
+        <td><%= link_to 'Show', source_of_income %></td>
+        <td><%= link_to 'Edit', edit_source_of_income_path(source_of_income) %></td>
+        <td><%= link_to 'Destroy', source_of_income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Sourse Of Income', new_sourse_of_income_path %>
+<%#= link_to 'New source Of Income', new_source_of_income_path %>

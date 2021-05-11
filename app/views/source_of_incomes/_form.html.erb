@@ -1,4 +1,4 @@
-<%= form_with(model: source_of_income) do |form| %>
+<%= form_with(model: [@loan, source_of_income]) do |form| %>
   <% if source_of_income.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(source_of_income.errors.count, "error") %> prohibited this source_of_income from being saved:</h2>
@@ -9,13 +9,13 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> 
 
   <div class="field">
     <%= form.label :salary_income %>
     <%= form.number_field :salary_income %>
   </div>
-
+ 
   <div class="field">
     <%= form.label :independent %>
     <%= form.number_field :independent %>
@@ -45,4 +45,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
 <%= javascript_pack_tag 'source_of_income', 'data-turbolinks-track': 'reload' %>

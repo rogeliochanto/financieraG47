@@ -23,7 +23,7 @@ class SourceOfIncomesController < ApplicationController
   # POST /source_of_incomes or /source_of_incomes.json
   def create
     @loan = Loan.find(params[:loan_id])
-    @source_of_income = @loan.source_of_income.build(source_of_income_params)
+    @source_of_income = @loan.build_source_of_income(source_of_income_params)
 
     respond_to do |format|
       if @source_of_income.save
@@ -66,6 +66,6 @@ class SourceOfIncomesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def source_of_income_params
-      params.require(:source_of_income).permit(:salary_income, :independent, :mixed_income, :expenses, :difference, :approval)
+      params.require(:source_of_income).permit(:salary_income, :independent, :mixed_income, :expenses, :difference, :approval, :user_id, :loan_id)
     end
 end

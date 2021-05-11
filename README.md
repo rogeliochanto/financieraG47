@@ -1,24 +1,26 @@
-# README
+# Introducción
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Esta aplicación está escrita en Ruby on Rails y tiene como finalidad que un usuario pueda consultar el monto de una cuota para un préstamo.
+Esta aplicación se realizó ya que muchos usuarios están interesados en saber el monto a pagar sobre un crédito de forma sencilla y simple sobre una categoría especifica (créditos personales, Vehículo o vivienda).
 
-Things you may want to cover:
+El objetivo de esta es que sea simple de usar y que el usuario pueda empezar los trámites correspondientes para iniciar el proceso de la solicitud de crédito.
+Además, se puedan hacer gráficos sobre colocaciones en forma mensual, semanal u otros 
+Es importante que la aplicación sea simple de usar y que los usuarios tengan la información de forma inmediata 
 
-* Ruby version
+# Modelos
 
-* System dependencies
+La aplicación consta con tres modelos según se indica  a continuación:
 
-* Configuration
+- user: modela a cada usuario de la aplicación. Hace uso de la gema `devise` para hacer un registro de usuario y tener login.
 
-* Database creation
+- Loan: Es donde se deben registran la información principal del crédito como son monto del crédito, intereses y plazo.
 
-* Database initialization
+- Source of income: Es en este modelo donde se detalla la información financiera del usuario (ingresos totales y egresos, la diferencia entre ingresos y egresos debería ser mayor al monto de la cuota a pagar para que el crédito sea aprobado si no es así el sistema deniega el crédito. Este modelo está asociado con la información del modelo Loan. 
 
-* How to run the test suite
+Controladores*****************************************************
 
-* Services (job queues, cache servers, search engines, etc.)
+- rooms: es un crud que está a medias de los rooms. Permite crear, listar y ver salas.
 
-* Deployment instructions
+- room_messages: T
 
-* ...
+# Dependencias
