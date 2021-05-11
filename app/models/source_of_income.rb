@@ -1,4 +1,4 @@
 class SourceOfIncome < ApplicationRecord
-  belongs_to :loans
+  belongs_to :loan
 end
 

@@ -24,10 +24,10 @@ class SourceOfIncomesController < ApplicationController
   def create
     @loan = Loan.find(params[:loan_id])
     @source_of_income = @loan.build_source_of_income(source_of_income_params)
-
+    @source_of_income.user_id = current_user.id
     respond_to do |format|
       if @source_of_income.save
-        format.html { redirect_to @source_of_income, notice: "source of income was successfully created." }
+        format.html { redirect_to @loan, notice: "source of income was successfully created." }
         format.json { render :show, status: :created, location: @source_of_income }
       else
         format.html { render :new, status: :unprocessable_entity }

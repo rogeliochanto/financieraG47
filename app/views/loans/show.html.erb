@@ -19,7 +19,38 @@
   <strong>Fee:</strong>
   <%= @loan.fee %>
 </p>
-
+<%if @loan.source_of_income.nil?%>
 <%= render 'source_of_incomes/form', source_of_income: @loan.build_source_of_income, loan:@loan%>
+<%else %> 
+<p>
+  <strong>Salary income:</strong>
+  <%= @loan.source_of_income.salary_income %>
+</p>
+
+<p>
+  <strong>Independent:</strong>
+  <%= @loan.source_of_income.independent %>
+</p>
+
+<p>
+  <strong>Mixed income:</strong>
+  <%= @loan.source_of_income.mixed_income %>
+</p>
+
+<p>
+  <strong>Expenses:</strong>
+  <%= @loan.source_of_income.expenses %>
+</p>
+
+<p>
+  <strong>Difference:</strong>
+  <%= @loan.source_of_income.difference %>
+</p>
+
+<p>
+  <strong>Approval:</strong>
+  <%= @loan.source_of_income.approval %>
+</p>
+<%end%>
 <%= link_to 'Edit', edit_loan_path(@loan) %> |
 <%= link_to 'Back', loans_path %>
