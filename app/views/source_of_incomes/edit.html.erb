@@ -1,24 +1,24 @@
-<h1>Editing Source Of Income</h1>
+<h1>Editar fuente de Ingresos</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Amount:</strong>
-  <%= @loan.amount %>
+  <strong>Monto:</strong>
+  <%= number_to_colones @loan.amount %>
 </p>
 
 <p>
-  <strong>Interest:</strong>
-  <%= @loan.interest %>
+  <strong>Interes:</strong>
+  <%= number_to_colones @loan.interest %>
 </p>
 
 <p>
-  <strong>Term:</strong>
+  <strong>Plazo</strong>
   <%= @loan.term %>
 </p>
 
-<p id='fee'>
-  <strong>Fee:</strong>
-  <%= @loan.fee %>
+<p id='fee' data-amount='<%=@loan.fee%>'>
+  <strong>Cuota:</strong>
+  <%= number_to_colones @loan.fee %>
 </p>
 <%= render 'form', loan: @loan, source_of_income: @source_of_income %>
 

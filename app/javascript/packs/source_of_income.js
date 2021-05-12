@@ -1,7 +1,7 @@
 const prestamo = {
   start(){
     function estaAprobado(){
-     var fee = Number($('#fee').text().split(':')[1]) 
+     var fee = Number($('#fee').data('amount')) 
      console.log(fee)
      var difference = Number($('#source_of_income_difference').val())
      if (difference >= fee){$('#source_of_income_approval').prop('checked',true)}

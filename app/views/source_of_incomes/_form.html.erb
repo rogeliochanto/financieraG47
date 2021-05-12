@@ -18,31 +18,31 @@
  
   <div class="form-group">
     <%= form.label 'Ingreso indendiente' %>
-    <%= form.number_field :independent %>
+    <%= form.number_field :independent , class: 'form-control'%>
   </div>
 
   <div class="form-group">
     <%= form.label 'total de ingresos' %>
-    <%= form.number_field :mixed_income %>
+    <%= form.number_field :mixed_income, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label 'total de gastos' %>
-    <%= form.number_field :expenses %>
+    <%= form.number_field :expenses, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label 'Diferencia' %>
-    <%= form.number_field :difference %>
+    <%= form.number_field :difference, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label 'Aprobado' %>
-    <%= form.check_box :approval %>
+    <%= form.check_box :approval, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Guardar',class: 'btn btn-success btn-lg' %>
   </div>
 <% end %>
 

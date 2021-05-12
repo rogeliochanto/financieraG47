@@ -1,57 +1,69 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col">
+  <h2>
+  Crédito</h2>
+    <p>
+      <strong>Monto:</strong>
+      <%= number_to_colones(@loan.amount) %>
+    </p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @loan.amount %>
-</p>
+    <p>
+      <strong>Interes:</strong>
+      <%= @loan.interest %>
+    </p>
 
-<p>
-  <strong>Interest:</strong>
-  <%= @loan.interest %>
-</p>
+    <p>
+      <strong>Plazo:</strong>
+      <%= @loan.term %>
+    </p>
+  
+    <p id='fee' data-amount='<%=@loan.fee%>'>
+      <strong>Cuota:</strong>
+      <%= number_to_colones(@loan.fee) %>
+    </p>
+  </div>
+  <div class="col">
+  <h2>Ingresos</h2>
+    <%if @loan.source_of_income.nil?%>
+    <%= render 'source_of_incomes/form', source_of_income: @loan.build_source_of_income, loan:@loan%>
+    <%else %> 
+    <p>
+      <strong>ingreso salario:</strong>
+      <span class=""><%=number_to_colones(@loan.source_of_income.salary_income) %></span>
+    </p>
 
-<p>
-  <strong>Term:</strong>
-  <%= @loan.term %>
-</p>
+    <p>
+      <strong>Independiente:</strong>
+      <span class=><%=number_to_colones(@loan.source_of_income.independent) %></span>
+    </p>
 
-<p id='fee'>
-  <strong>Fee:</strong>
-  <%= @loan.fee %>
-</p>
-<%if @loan.source_of_income.nil?%>
-<%= render 'source_of_incomes/form', source_of_income: @loan.build_source_of_income, loan:@loan%>
-<%else %> 
-<p>
-  <strong>Salary income:</strong>
-  <span class="border border-dark p-1"><%= @loan.source_of_income.salary_income %></span>
-</p>
+    <p class=""> 
+      <strong>Total de ingresos:</strong>
+      <%= number_to_colones(@loan.source_of_income.mixed_income) %>
+    </p>
 
-<p>
-  <strong>Independent:</strong>
-  <span class="border py-1 px-3"><%= @loan.source_of_income.independent %></span>
-</p>
+    <p>
+      <strong class="">Expenses:</strong>
+      <span class=""><%= number_to_colones(@loan.source_of_income.expenses) %></span>
+    </p>
 
-<p class="border border-dark p-1"> 
-  <strong>Mixed income:</strong>
-  <%= @loan.source_of_income.mixed_income %>
-</p>
+    <p>
+      <span class="">
+        <strong>Difference:</strong>
+        <%= number_to_colones(@loan.source_of_income.difference) %>
+      </span>
+    </p>
+  
+  </div>
 
-<p>
-  <strong class="border-top border-dark border-left">Expenses:</strong>
-  <span class="border-top border-dark border-right"><%= @loan.source_of_income.expenses %></span>
-</p>
+</div>
 
-<p>
-  <span class="border border-dark p-1">
-    <strong>Difference:</strong>
-    <%= @loan.source_of_income.difference %>
-  </span>
-</p>
 
-<p>
-  <strong>Approval:</strong>
-  <%= @loan.source_of_income.approval %>
+
+<p class ='display-4'>
+  <strong>Resolución:</strong>
+  <%= @loan.source_of_income.approval ? 'Confirmado' : 'Denegado' %> 
 </p>
 <%end%>
 <%if @loan.source_of_income.persisted?%>
