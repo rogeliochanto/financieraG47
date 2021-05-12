@@ -10,33 +10,33 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= form.label :kind %>
-    <%= form.select :kind, [["Personal",:personal], ["Vivienda",:real_state], ["Vehículo", :vehicle]] %>
+  <div class="form-group">
+    <%= form.label 'Tipo de Préstamo' %>
+    <%= form.select :kind, [["Personal",:personal], ["Vivienda",:real_state], ["Vehículo", :vehicle]], {},class: 'form-control' %> 
   </div>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
+  <div class="form-group">
+    <%= form.label 'Monto' %>
+    <%= form.number_field :amount, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :interest %>
-    <%= form.text_field :interest %>
+  <div class="form-group">
+    <%= form.label 'Tasa de Interés' %>
+    <%= form.text_field :interest, class: 'form-control', readonly: true %>
   </div>
 
-  <div class="field">
-  <%= form.label :term %>
-  <%=form.select :term,['12','24','36'] %>
+  <div class="form-group">
+  <%= form.label 'Plazo' %>
+  <%=form.select :term,['12','24','36'],{}, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :fee %>
-    <%= form.number_field :fee %>
+  <div class="form-group">
+    <%= form.label 'Cuota' %>
+    <%= form.number_field :fee, class: 'form-control', readonly: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Guardar',class: 'btn btn-success btn-lg'%>
   </div>
 <% end %>
 <%= javascript_pack_tag 'prestamo', 'data-turbolinks-track': 'reload' %>

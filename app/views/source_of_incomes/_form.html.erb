@@ -11,33 +11,33 @@
     </div>
   <% end %> 
 
-  <div class="field">
-    <%= form.label :salary_income %>
-    <%= form.number_field :salary_income %>
+  <div class="form-group">
+    <%= form.label 'Ingreso por salario' %>
+    <%= form.number_field :salary_income, class: 'form-control'%>
   </div>
  
-  <div class="field">
-    <%= form.label :independent %>
+  <div class="form-group">
+    <%= form.label 'Ingreso indendiente' %>
     <%= form.number_field :independent %>
   </div>
 
-  <div class="field">
-    <%= form.label :mixed_income %>
+  <div class="form-group">
+    <%= form.label 'total de ingresos' %>
     <%= form.number_field :mixed_income %>
   </div>
 
-  <div class="field">
-    <%= form.label :expenses %>
+  <div class="form-group">
+    <%= form.label 'total de gastos' %>
     <%= form.number_field :expenses %>
   </div>
 
-  <div class="field">
-    <%= form.label :difference %>
+  <div class="form-group">
+    <%= form.label 'Diferencia' %>
     <%= form.number_field :difference %>
   </div>
 
-  <div class="field">
-    <%= form.label :approval %>
+  <div class="form-group">
+    <%= form.label 'Aprobado' %>
     <%= form.check_box :approval %>
   </div>
 
