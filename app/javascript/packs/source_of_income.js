@@ -1,11 +1,11 @@
 const prestamo = {
   start(){
-    console.log('hola LISTO EL LISTADO DE PRESTAMOS')
     function estaAprobado(){
-     var fee = Number($('#fee').html()) 
+     var fee = Number($('#fee').text().split(':')[1]) 
+     console.log(fee)
      var difference = Number($('#source_of_income_difference').val())
-     if (diference >= fee){$('#source_of_income_approval').checked = true}
-     else {$('#source_of_income_approval').checked = false}
+     if (difference >= fee){$('#source_of_income_approval').prop('checked',true)}
+     else {$('#source_of_income_approval').prop('checked',false)}
     }
     function ingresos(){
       var salary = Number($('#source_of_income_salary_income').val())

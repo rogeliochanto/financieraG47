@@ -24,9 +24,7 @@
         <td><%= source_of_income.expenses %></td>
         <td><%= source_of_income.difference %></td>
         <td><%= source_of_income.approval %></td>
-        <td><%= link_to 'Show', source_of_income %></td>
-        <td><%= link_to 'Edit', edit_source_of_income_path(source_of_income) %></td>
-        <td><%= link_to 'Destroy', source_of_income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', source_of_income.loan %></td>
       </tr>
     <% end %>
   </tbody>

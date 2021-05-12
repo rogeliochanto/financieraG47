@@ -1,6 +1,25 @@
-<h1>Editing Sourse Of Income</h1>
+<h1>Editing Source Of Income</h1>
+<p id="notice"><%= notice %></p>
 
-<%= render 'form', sourse_of_income: @sourse_of_income %>
+<p>
+  <strong>Amount:</strong>
+  <%= @loan.amount %>
+</p>
 
-<%= link_to 'Show', @sourse_of_income %> |
-<%= link_to 'Back', sourse_of_incomes_path %>
+<p>
+  <strong>Interest:</strong>
+  <%= @loan.interest %>
+</p>
+
+<p>
+  <strong>Term:</strong>
+  <%= @loan.term %>
+</p>
+
+<p id='fee'>
+  <strong>Fee:</strong>
+  <%= @loan.fee %>
+</p>
+<%= render 'form', loan: @loan, source_of_income: @source_of_income %>
+
+<%= link_to 'Back', source_of_incomes_path %>

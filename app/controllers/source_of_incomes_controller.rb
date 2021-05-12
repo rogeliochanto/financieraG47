@@ -40,7 +40,7 @@ class SourceOfIncomesController < ApplicationController
   def update
     respond_to do |format|
       if @source_of_income.update(source_of_income_params)
-        format.html { redirect_to @source_of_income, notice: "source of income was successfully updated." }
+        format.html { redirect_to @source_of_income.loan, notice: "source of income was successfully updated." }
         format.json { render :show, status: :ok, location: @source_of_income }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,7 +61,8 @@ class SourceOfIncomesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_source_of_income
-      @source_of_income = sourceOfIncome.find(params[:id])
+      @loan = Loan.find(params[:loan_id])
+      @source_of_income = @loan.source_of_income
     end
 
     # Only allow a list of trusted parameters through.
