@@ -54,6 +54,9 @@
   <%= @loan.source_of_income.approval %>
 </p>
 <%end%>
-<%= link_to 'Editar ingreso', edit_loan_source_of_income_path(@loan, @loan.source_of_income) %> |
+<%if @loan.source_of_income.persisted?%>
+<%= link_to 'Editar ingreso', edit_loan_source_of_income_path(@loan, @loan.source_of_income) %> 
+<%end%>
+| 
 <%= link_to 'Editar crédito', edit_loan_path(@loan) %> |
 <%= link_to 'Back', loans_path %>

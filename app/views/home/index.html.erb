@@ -1,45 +1,52 @@
-<div class="form text-center"> 
-<h1>Financiera G47</h1>
-<p>Soluciones Financieras a su alcance </p>
-<div class="form text-center"> 
-
-<div class="container">
-<%= image_tag 'imagen_proyecto.jpg', class:"img-fluid" %>
-
-  <h2>Tipo de Crédito</h2>
-  <form>
-    <div class="row text-center">
-        <div class="col-md-6 offset-md-3">
-          <select class="custom-select" id='loanTypeInput'>
-            <option selected>Elija una opción</option>
-            <option value="personal">Personal</option>
-            <option value="car">Vehículo</option>
-            <option value="house">Vivienda</option>
-          </select>
-        </div>
-    </div>
-    </div>
-        <h3>Cálculo de cuota de Préstamo</h3>
-
-  <div class="form-row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="monto" id='amount'>
-    </div>
-    <div class="col">
+<div class="form"> 
+  <div class="container">
+  <div class="row text-center">
+  <div class="col">
+        <h1>Soluciones Financieras a su alcance </h1>
+  </div>
+        
+  </div>
+    <div class="row">
+      <div class="col text-center">
+        <%= image_tag 'imagen_proyecto.jpg', class:"img-fluid" %>
+      </div>
+      <div class="col">
+      <h3>Cálculo de cuota de Préstamo</h2>
+      <form>
+      <div class="form-group">
+        <label for='loanTypeInput'>Tipo de Crédito</label>
+        <select class="custom-select" id='loanTypeInput'>
+          <option selected>Elija una opción</option>
+          <option value="personal">Personal</option>
+          <option value="car">Vehículo</option>
+          <option value="house">Vivienda</option>
+        </select>
+      </div>
+      <div class="form-group">
+      <label for="amount">Monto</label>
+        <input type="text" class="form-control" placeholder="Ingrese monto" id='amount'>
+      </div>
+      <div class="form-group">
+      <label for="period">Periodos</label>
           <select class="custom-select" id='period'>
             <option selected>Plazo en meses</option>
             <option value="1">36</option>
             <option value="2">60</option>
             <option value="3">96</option>
           </select>
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Intéres Mensual" id='rate'>
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Cuota" id="cuota">
+      </div>
+      <div class="form-group">
+      <label for="rate">Tasa</label>
+        <input type="text" class="form-control" placeholder="Intéres Mensual" id='rate' disabled>
+      </div>
+      <div class="form-group">
+      <label for="cuota">Cuota</label>
+        <input type="text" class="form-control" placeholder="Cuota" id="cuota" disabled>
+      </div>
+      </form>
+      <%=link_to 'Solicitar Crédito', new_loan_path, class: 'btn btn-success btn-lg'%>
+      </div>
     </div>
   </div>
-</form>
 </div>
         <%= javascript_pack_tag 'LoanForm' %>

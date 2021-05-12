@@ -17,20 +17,24 @@
   <body>
   <h1></h1>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to 'Pagina Principal', root_path, class: "navbar-brand"%>
+  <%= link_to 'Financiera G47', root_path, class: "navbar-brand"%>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-          <%= link_to 'Fuente de ingreso', source_of_incomes_path, class: "nav-link"%>s
+  <div class="collapse navbar-collapse " id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+          <%= link_to 'Fuente de ingresos', source_of_incomes_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
-        <a class="" href="#">Prestamos</a>
+        <%= link_to 'Prestamos', loans_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Cerrar sesión</a>  
+      <% if user_signed_in? %>
+        <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class: "nav-link"%>
+      <% else %>
+        <%= link_to 'Registro', new_user_session_path, class: "nav-link"%>
+      <% end %>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Registro</a>
@@ -38,12 +42,6 @@
     </ul>
   </div>
 </nav>
- <% if user_signed_in? %>
-  <%= link_to 'cerrar sesión', destroy_user_session_path, method: :delete %>
-  <% else %>
-  <%= link_to 'Registro', new_user_session_path%>
-  <% end %>
-  <%= link_to 'Prestamos', loans_path%>
   
 
   <div class="container">
